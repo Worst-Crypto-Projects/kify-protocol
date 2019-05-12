@@ -1,42 +1,19 @@
- // Copywrite 2019 The Kegcoin gold devs (remove this and i will consume you)
- #include <kify.h> // Config File
- #include <algorithm>
-
+// Copywrite 2019 The Kegcoin gold devs (remove this and i will consume you)
+#include <kify.h> // Config File
+#include <algorithm>
 #include <numeric>
-
 #include <Common/ShuffleGenerator.h>
 #include <Common/Math.h>
 #include <Common/MemoryInputStream.h>
-
 #include <CryptoNoteCore/BlockchainCache.h>
 #include <CryptoNoteCore/BlockchainStorage.h>
-#include <CryptoNoteCore/BlockchainUtils.h>
-#include <CryptoNoteCore/Core.h>
-#include <CryptoNoteCore/CoreErrors.h>
-#include <CryptoNoteCore/CryptoNoteFormatUtils.h>
-#include <CryptoNoteCore/CryptoNoteTools.h>
-#include <CryptoNoteCore/ITimeProvider.h>
-#include <CryptoNoteCore/MemoryBlockchainStorage.h>
-#include <CryptoNoteCore/Mixins.h>
-#include <CryptoNoteCore/TransactionApi.h>
-#include <CryptoNoteCore/TransactionExtra.h>
-#include <CryptoNoteCore/TransactionPool.h>
-#include <CryptoNoteCore/TransactionPoolCleaner.h>
-#include <CryptoNoteCore/UpgradeManager.h>
-
-#include <CryptoNoteProtocol/CryptoNoteProtocolHandlerCommon.h>
-
+#include <CryptoNoteCore/Currency.cpp>
+#include <CryptoNoteCore/Core.cpp>
 #include <set>
-
-#include <System/Timer.h>
-
-#include <Utilities/FormatTools.h>
-#include <Utilities/LicenseCanary.h>
 #include <P2p/Peerlist.cpp>
 #include <unordered_set>
+#include <bits/stdc++.h>
 
-#include <WalletTypes.h>
-#include <bits/stdc++.h> 
 using namespace std; 
   
 namespace CryptoNote {
