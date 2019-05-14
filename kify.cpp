@@ -9,6 +9,7 @@
 #include <CryptoNoteCore/BlockchainStorage.h>
 #include <CryptoNoteCore/Currency.cpp>
 #include <CryptoNoteCore/Core.cpp>
+#include "../config/CryptoNoteConfig.h"
 #include <set>
 #include <P2p/Peerlist.cpp>
 #include <unordered_set>
@@ -17,7 +18,21 @@
 using namespace std; 
   
 namespace CryptoNote {
- 
+void main() {
+  if (startKify() != True) {
+    cout << "Kify failed to start.";
+    exit();
+}
+void startKify() {
+  uint64_t netBlockHeight = getBlockHeight();
+  if (netBlockHeight < 0) {
+    bool kify = True; // Set kify to online
+    cout << "Kify online (V2.0.1)";
+  }else {
+    bool kify = False;
+  }
+  return kify;
+}
 /*structing the trie*/
  struct Trie { 
      string key; 
@@ -128,6 +143,7 @@ namespace CryptoNote {
    return True;
   }else {
    return False
+   //banPeer(newChainIp); WIP
   }
  }
 }
