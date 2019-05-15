@@ -3,12 +3,12 @@ const string types = { //Types of bans
 "Permanant", // P
 "Temporary,  // T
 "Soft",      // S
-}
+};
 const uint64_t codes = {
   "0", // P
   "1", // T
   "2", // S
-}
+};
 string getType(code) {
   if (code !in codes) {
     return "invalid Ban code";
