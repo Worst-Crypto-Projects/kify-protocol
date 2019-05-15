@@ -4,7 +4,7 @@ const string types = { //Types of bans
 "Temporary,  // T
 "Soft",      // S
 }
-const uint64_t codes
+const uint64_t codes = {
   "0", // P
   "1", // T
   "2", // S
