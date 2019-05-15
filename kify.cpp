@@ -1,4 +1,4 @@
-// Copywrite 2019 The Kegcoin gold devs (remove this and i will consume you)
+// Copywrite 2019 The Kegcoin gold devs
 #include <kify.h> // Config File
 #include <algorithm>
 #include <numeric>
@@ -9,7 +9,7 @@
 #include <CryptoNoteCore/BlockchainStorage.h>
 #include <CryptoNoteCore/Currency.cpp>
 #include <CryptoNoteCore/Core.cpp>
-#include "../config/CryptoNoteConfig.h"
+#include <../config/CryptoNoteConfig.h>
 #include <set>
 #include <P2p/Peerlist.cpp>
 #include <unordered_set>
@@ -22,6 +22,22 @@ void main() {
   if (startKify() != True) {
     cout << "Kify failed to start.";
     exit();
+  }else {
+    /*structing the trie*/
+     struct Trie { 
+     string key; 
+     int cnt; 
+     unordered_map<char, Trie*> map; 
+     };
+  } 
+  
+ /* Function to return a new Trie node */
+ Trie* getNewTrieNode() 
+ { 
+     Trie* node = new Trie; 
+     node->cnt = 0; 
+     return node; 
+ } 
 }
 void startKify() {
   uint64_t netBlockHeight = getBlockHeight();
