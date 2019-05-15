@@ -1,0 +1,1 @@
+const uint64_t TX_PER_PERSON_PER_DAY = 1000;
