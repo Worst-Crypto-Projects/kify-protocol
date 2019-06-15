@@ -11,7 +11,12 @@ bool banPeer(char* ip, string reason) {
     blackList.add(ip);
     std::cout << "Banned peer " + ip + " for " + reason;
     return true;
-  } else {
+  }elif (ip in banList) {
+    std::cout << "ERROR: peer allready banned!";
+    return false;
+  }elif (banServer !== True) {
+    std::cout << "ERROR: Not initilised";
+  }else {
     std::cout << "ERROR: cannot ban peer, not in peerlist!";
     return false;
   }
