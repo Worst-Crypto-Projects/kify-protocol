@@ -23,3 +23,4 @@ string getType(code) {
    exit();
   }
 }
+char* banList;
