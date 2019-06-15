@@ -31,7 +31,7 @@ enum class AddBlockErrorCode {
   ALREADY_EXISTS,
   REJECTED_AS_ORPHANED,
   DESERIALIZATION_FAILED,
-  INCORECT_CHAIN
+  REJECTED_BY_KIFY
 };
 
 // custom category:
@@ -57,7 +57,7 @@ public:
       case AddBlockErrorCode::ALREADY_EXISTS: return "Block already exists";
       case AddBlockErrorCode::REJECTED_AS_ORPHANED: return "Block rejected as orphaned";
       case AddBlockErrorCode::DESERIALIZATION_FAILED: return "Deserialization error";
-      case AddBlockErrorCode::INCORRECT_CHAIN: return "Previous Blocks have been edited forking your chain";
+      case AddBlockErrorCode::REJECTED_BY_KIFY: return "Incorrect block ancestory";
       default: return "Unknown error";
     }
   }
