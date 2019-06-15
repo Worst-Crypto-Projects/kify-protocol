@@ -4,5 +4,7 @@
 void main() {
   if (getBlockHeight > KIFY_V2_UPGRADE_HEIGHT) {
     return 0;
-  }
+  }else {
+    txScanner = True;
+    return 1;
 }
