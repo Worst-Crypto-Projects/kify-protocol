@@ -30,7 +30,7 @@
 #include <CryptoNoteCore/TransactionPool.h>
 #include <CryptoNoteCore/TransactionPoolCleaner.h>
 #include <CryptoNoteCore/UpgradeManager.h>
-
+#include <Kify/kify.cpp>
 #include <CryptoNoteProtocol/CryptoNoteProtocolHandlerCommon.h>
 
 #include <set>
@@ -983,6 +983,11 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
   if (cache == nullptr) {
     logger(Logging::DEBUGGING) << "Block " << blockStr << " rejected as orphaned";
     return error::AddBlockErrorCode::REJECTED_AS_ORPHANED;
+  }
+  
+  if (!Kify:kify(rawBlock)) {
+    logger(Logging:DEBUGGING) << "Block " <<blockStr << " rejected by kify.";
+    reurn error::AddBlockErrorCode:REJECTED_BY_KIFY;
   }
 
   std::vector<CachedTransaction> transactions;
