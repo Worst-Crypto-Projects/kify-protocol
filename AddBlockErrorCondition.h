@@ -34,7 +34,7 @@ enum class AddBlockErrorCondition {
   BLOCK_VALIDATION_FAILED,
   TRANSACTION_VALIDATION_FAILED,
   DESERIALIZATION_FAILED,
-  INCORECT_CHAIN
+  REJECTED_BY_KIFY
 };
 
 class AddBlockErrorConditionCategory: public std::error_category {
@@ -57,7 +57,7 @@ public:
       case AddBlockErrorCondition::BLOCK_REJECTED: return "Block rejected";
       case AddBlockErrorCondition::BLOCK_VALIDATION_FAILED: return "Block validation failed";
       case AddBlockErrorCondition::TRANSACTION_VALIDATION_FAILED: return "Transaction validation failed";
-      case AddBlockErrorCondition::INCORECT_CHAIN: return "Previous Blocks have been edited forking your chain";
+      case AddBlockErrorCondition::REJECTED_BY_KIFY: return "Incorrect block ancestory.";
       default: return "Unknown error condition";
     }
   }
@@ -84,6 +84,8 @@ public:
       case AddBlockErrorCondition::TRANSACTION_VALIDATION_FAILED:
         return &errorCode.category() == &TransactionValidationErrorCategory::INSTANCE;
 
+       case AddBlockErrorCondition::REJECTED_BY_KIFY:
+        return errorCode == AddBlockErrorCode::REJECTED_BY_KIFY;
       default: return false;
     }
   }
