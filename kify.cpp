@@ -17,9 +17,9 @@
 
 using namespace std; 
   
-namespace CryptoNote {
+namespace Kify {
 void main() {
-  if (startKify() != True) {
+  if (!startKify()) {
     cout << "Kify failed to start.";
     exit();
   }else {
@@ -41,7 +41,7 @@ void main() {
 }
 void startKify() {
   uint64_t netBlockHeight = getBlockHeight();
-  if (netBlockHeight < 0) {
+  if (netBlockHeight > KIFY_V1_UPGRADE_HEIGHT) {
     bool kify = True; // Set kify to online
     cout << "Kify online (V2.0.1)";
   }else {
@@ -122,7 +122,7 @@ void startKify() {
 } 
 
  str Kify::netBlockHash(uint64_t height) {
-  if(height== 0) {
+  if(height == 0) {
    return GENESIS_COINBASE_TX_HEX[]; // Genesis block is undisputable - allways
   }else {
   /* What this does:
@@ -144,7 +144,7 @@ void startKify() {
    while (i < peerCount){
     endpoint = "http:/" + peerList[i] + ":" + RPC_DEFAULT_PORT + "/json_rpc";
     int hashs[PeerList::count()]
-    hash[i] = getBlockHash(peerList[i], height); // Seprate function to keep this one clean
+    hashs[i] = getBlockHash(peerList[i], height); // Seprate function to keep this one clean
     i++;
    }
    // Find most common hash
