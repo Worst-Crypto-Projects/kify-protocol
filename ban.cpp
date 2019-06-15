@@ -9,6 +9,7 @@ bool banPeer(char* ip, string reason) {
   if (ip in getPeerList()) {
     peerList.remove(ip);
     blackList.add(ip);
+    banList = banList + ip + ",";
     std::cout << "Banned peer " + ip + " for " + reason;
     return true;
   }elif (ip in banList) {
