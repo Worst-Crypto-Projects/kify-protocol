@@ -10,7 +10,7 @@ The kify protocol prevents 51 attacks by checking new blocks have not modifyed t
 - [x] ban peer that is proposing chain if it is found to have modified previous blocks (diffrent levels (soft/ temp/ perm),
 - [ ] accept block if it is correct,
 - [ ] run this check whenether a (NEW - not during syncing) block is sent to you.
---[ ] TX spam attack prevention:
+- [ ] TX spam attack prevention:
 - [ ] Limit TXs/person/day (or block?)
 ## How to implement?
 This code snippet currently only works with turtlecoin forks (cryptoNote based) but i may add support for other coins in the future. Just replace your core.cpp, currency.cpp,AddBlockErrors.h and AddBlockErrorCondition.h with the ones provided and add ban.cpp and ban.h to your CryptoNoteCore folder,the create src/Kify and add kify.c and kify.h then replace ~/coin/CMakeLists.txt with the provided one. Or you can fork kegcoin old directly and have all the latest updates only a pr away.
