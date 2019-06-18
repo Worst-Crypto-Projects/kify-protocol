@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018-2019, The Galaxia Project Developers
 // Copyright (c) 2018-2019, The TurtleCoin Developers
-//
+// Copyright (c) 2019, The Kegcoin Developers
 // Please see the included LICENSE file for more information.
 
 #include <algorithm>
@@ -986,8 +986,9 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
   }
   
   if (!Kify:kify(rawBlock)) {
-    logger(Logging:DEBUGGING) << "Block " <<blockStr << " rejected by kify.";
-    reurn error::AddBlockErrorCode:REJECTED_BY_KIFY;
+    logger(Logging:DEBUGGING) << "Block " << blockStr << " rejected by kify.";
+    logger(Logging::INFO) << "inccorect block provided by peer, Dropping connection
+    reurn error::AddBlockErrorCode::REJECTED_BY_KIFY;
   }
 
   std::vector<CachedTransaction> transactions;
